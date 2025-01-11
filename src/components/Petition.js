@@ -12,8 +12,8 @@ function Petition({ updated = 'N/A' }) {
                 const response = await fetch('/signatures.csv');
                 const csvText = await response.text();
                 const cleanedText = csvText
-                    .replace(/\u0000/g, '')
-                    .replace(/��/g, ''); /* This is a terrible solution that'll be fixed eventually */
+                    .replace('/\u0000/g', '')
+                    .replace('/��/g', ''); /* This is a terrible solution that'll be fixed eventually */
                 Papa.parse(cleanedText, {
                     delimiter: '\t',
                     header: true,
