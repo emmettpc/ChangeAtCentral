@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import MenuIcon from '@mui/icons-material/Menu';
+import genderqueerFlag from '../assets/images/genderqueer_flag.webp';
 
 function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -105,15 +106,22 @@ function Navbar() {
                 id="navbar"
             >
                 <Toolbar>
+                    <Box
+                        component="img"
+                        src={genderqueerFlag}
+                        alt="Genderqueer Flag"
+                        sx={{
+                            flexGrow: 1,
+                            maxWidth: '5%',
+                        }}
+                    />
                     <Typography
                         variant="h5"
                         sx={{
                             flexGrow: 1,
                             fontWeight: 'bold',
                         }}
-                    >
-                        IDK
-                    </Typography>
+                    />
                     <Box
                         sx={{
                             display: {

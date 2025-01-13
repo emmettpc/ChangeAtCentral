@@ -1,50 +1,55 @@
 import React from 'react';
 import { Box, Typography, Link, List, ListItem, Divider, ListItemText, Tooltip } from '@mui/material';
+import prideBooksIMG from '../assets/artworks/pride_books.png';
 
 function Resources() {
     const linksData = [
         {
-            label: 'Placeholder Website 1',
-            url: 'https://example1.com',
+            label: 'Point of Pride',
+            url: 'https://www.pointofpride.org/resource-library',
             description:
-                'This is a website. Id amet nulla iaculis pulvinar natoque magnis aliquam finibus facilisis. Est fringilla nisi eleifend pretium fringilla torquent. Varius mus posuere ut eu efficitur, fermentum parturient sociosqu. Pellentesque hac eget velit nibh fusce ad finibus. Pulvinar fusce nisl inceptos; eleifend eros iaculis. Facilisis convallis tempus velit erat quisque. Phasellus elementum quisque vivamus, nisl facilisi molestie fusce. Magnis habitant libero nibh suspendisse justo in sociosqu.',
-            shortDescription: 'short desc 1',
+                'Point of Pride is an organization dedicated to supporting trans and genderqueer people by providing them access to vital resources and financial assistance. They offer free chest binders and gender-affirming clothing to those in need and maintain a comprehensive resource library. This organization is important because it helps to alleviate the financial burden many genderqueer people face when accessing gender-affirming items.',
+            shortDescription:
+                'Provides free chest binders, gender-affirming clothing, and resources for trans and genderqueer individuals.',
         },
         {
-            label: 'Placeholder Website 2',
-            url: 'https://example2.com',
+            label: 'The Trever Project',
+            url: 'https://www.thetrevorproject.org',
             description:
-                'This is another website. Praesent massa ex sociosqu sollicitudin dis. Arcu euismod tortor vulputate porta sagittis. Nam facilisi mollis non convallis nullam nostra ex dolor. Tortor sagittis gravida quis erat tincidunt ultrices varius. Malesuada inceptos arcu proin viverra taciti. Consectetur mus orci donec fringilla sodales nec. Facilisis ullamcorper ex imperdiet adipiscing vehicula est tempor. Tristique curae commodo venenatis maximus auctor ornare class. Pharetra finibus turpis penatibus himenaeos sem; et parturient euismod.',
-            shortDescription: 'short desc 2',
+                'The Tervor Project is the leading organization focused on preventing suicide among LGBTQ+ youth. It provides 24/7 crisis support, resources, and advocacy to promote mental health and well-being. The Trevor Project also offers workshops and educational materials on LGBTQ+ issues. They help to create safer spaces for queer youth, offering life-saving support, and educating allies.',
+            shortDescription: 'Offers crisis support, suicide prevention, and resources for LGBTQ+ youth.',
         },
         {
-            label: 'Placeholder Article 1',
-            url: 'https://article1.com',
+            label: "What's the T by Juno Dawson",
+            url: 'https://www.goodreads.com/book/show/60383239-what-s-the-t-the-guide-to-all-things-trans-and-or-nonbinary',
             description:
-                'THIS IS AN ARTICLE. Ad eros himenaeos semper dignissim auctor fames cras lacinia. Ullamcorper urna finibus nunc nulla accumsan etiam. In proin tellus mi luctus ridiculus semper. Sollicitudin nec efficitur felis vulputate; eu venenatis magnis. Dis id condimentum euismod torquent mattis integer cras diam euismod. Adipiscing tellus sed cubilia luctus turpis sociosqu.',
-            shortDescription: 'short desc 3',
+                '"What\'s the T" by Juno Dawson is a guidebook for understanding what it means to be trans or genderqueer. It is packed with advice and answers to common questions about gender, and it includes a glossary of LGBTQ+ terms and additional resources for further exploration. This book can be helpful for individuals questioning their identity, or for allies that are seeking to learn more about gender diversity.',
+            shortDescription:
+                'A guidebook answering common questions about gender and providing resources for genderqueer people.',
         },
         {
-            label: 'Placeholder Article 2 (:',
-            url: 'https://article2.com',
+            label: "St. Paul's Johnson High Eliminating Gender-Specific Restrooms - Pioneer Press Article",
+            url: 'https://www.twincities.com/2016/05/03/st-pauls-johnson-high-converting-all-restrooms-to-single-occupancy',
             description:
-                'btw this is an aticle. Per praesent velit magna aliquet faucibus proin vestibulum. Dictumst dui primis tellus sapien id posuere mattis potenti. Tincidunt est magnis ante consequat fringilla fusce metus. Neque egestas suspendisse proin quam per convallis. Amet nostra consectetur ac id nullam mauris cursus. Vestibulum erat maecenas ut cubilia tellus sit duis porttitor. Egestas nibh mi nostra scelerisque porta mattis quis congue vestibulum.',
-            shortDescription: 'short desc 4',
+                'In 2016, Johnson High School became the first high school in the Saint Paul Public Schools district to convert all restrooms into single-occupancy, gender-neutral facilities, and this article covers the change. It  not only added more stalls but also created a safer and more inclusive environment for students and staff. It shows the feasibility of important changes like this ones.',
+            shortDescription:
+                "Details Johnson High's shift to gender-neutral restrooms and its positive impact on students.",
         },
 
         {
-            label: 'Placeholder Resource 1',
-            url: 'https://resource1.com',
+            label: 'In St. Paul Schools, Gender-Neutral Bathrooms Have Proven Safer for All Students - MPR Article',
+            url: 'https://www.mprnews.org/story/2023/09/22/in-st-paul-schools-genderneutral-bathrooms-have-proven-safer-for-all-students',
             description:
-                'ThIs Is A ReSoUrCe. Tortor ex ex scelerisque est non integer. Litora taciti nisi urna iaculis pharetra turpis eu. Quis mollis rhoncus penatibus sem convallis proin porta rhoncus diam. Lacus ante fringilla egestas est odio nibh tempus. Condimentum elementum habitant torquent conubia egestas bibendum, in curae. Aptent donec hendrerit dictumst sagittis praesent non per. Odio suspendisse gravida potenti hac vel ante.',
-            shortDescription: 'short desc 5',
+                'This article by MPR News demonstrates the significance of having gender-neutral bathrooms in schools, focusing on their implementation at Johnson High School. It shows how these bathrooms help to improve privacy, safety, and comfort for all students, especially trans and gender-nonconforming individuals. It shows the shear importance of inclusive facilities like this in schools, and its positive impact on well-being and equity of genderqueer students.',
+            shortDescription: 'Highlights the benefits of gender-neutral restrooms for safety, comfort, and inclusion.',
         },
         {
-            label: 'Placeholder Resource 2',
-            url: 'https://resource2.com',
+            label: 'Inclusive Restrooms - St. Paul Public Schools Article',
+            url: 'https://www.spps.org/about/departments/facilities/planning-design-and-construction/inclusive-restrooms',
             description:
-                '...this is another resourse... ): . Odio conubia semper facilisis habitant ad senectus venenatis elit. Pellentesque tristique imperdiet suscipit urna, convallis facilisis cursus. Ut nisl taciti est primis in; vivamus interdum cursus. Neque imperdiet amet ac natoque placerat suscipit cursus. Sit tellus ornare aptent aliquet eleifend placerat aenean nunc himenaeos. Non posuere non elementum, per condimentum himenaeos luctus. Morbi tortor sagittis nec dignissim venenatis. Ultrices interdum enim nulla, convallis dui semper condimentum. Risus luctus at felis parturient cubilia in; at vel.',
-            shortDescription: 'short desc 6',
+                'This section on the Saint Paul Public Schools website describes their plan to implement gender-neutral restrooms across all schools in the district. It highlights the features like floor-to-ceiling stalls, locks, and enhanced privacy, as well as answers to common questions. It educates communities about the importance of inclusive restroom designs, which creates a safe and welcoming environment for all students.',
+            shortDescription:
+                "Explains SPPS's efforts to implement safe, gender-neutral restrooms in all SPPS schools.",
         },
     ];
 
@@ -67,6 +72,17 @@ function Resources() {
             >
                 Helpful Resources
             </Typography>
+            <Box
+                component="img"
+                src={prideBooksIMG}
+                alt="Pride Books Artwork"
+                sx={{
+                    maxWidth: '70%',
+                    maxHeight: '70%',
+                    marginTop: '1rem',
+                    borderRadius: '2rem',
+                }}
+            />
             <List>
                 {linksData.map((link, index) => (
                     <React.Fragment key={index}>

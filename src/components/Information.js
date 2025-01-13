@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Typography, Modal } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import chainedToLabelsIMG from '../assets/artworks/chained_to_labels.png';
-import johnsonHighBathroomsIMG from '../assets/johnson_high_bathrooms.jpg';
+import johnsonHighBathroomsIMG from '../assets/images/johnson_high_bathrooms.jpg';
 import ImageViewer from './ImageViewer';
 
 function Information() {
@@ -94,7 +94,7 @@ function Information() {
                     <Box
                         component="img"
                         src={johnsonHighBathroomsIMG}
-                        alt="Johnson Highschool Gender-Neutral Bathrooms"
+                        alt="Johnson Highschool Gender-Neutral Bathrooms Image"
                         sx={{
                             width: {
                                 xs: '90%',
@@ -109,7 +109,10 @@ function Information() {
                             cursor: 'pointer',
                         }}
                         onClick={() =>
-                            handleOpenViewer(johnsonHighBathroomsIMG, 'Johnson Highschool Gender-Neutral Bathrooms')
+                            handleOpenViewer(
+                                johnsonHighBathroomsIMG,
+                                'Johnson Highschool Gender-Neutral Bathrooms Image',
+                            )
                         }
                     />
                 </Box>
