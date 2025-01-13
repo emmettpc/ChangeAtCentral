@@ -137,7 +137,7 @@ function Petition({ updated = 'N/A' }) {
                             images={[
                                 {
                                     image: stuckAtTheDoorIMG,
-                                    title: 'Stuck At The Door',
+                                    title: 'Stuck At The Door Artwork',
                                 },
                             ]}
                             onClose={() => setShowImage(false)}

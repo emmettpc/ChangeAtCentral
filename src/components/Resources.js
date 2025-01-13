@@ -1,8 +1,11 @@
-import React from 'react';
-import { Box, Typography, Link, List, ListItem, Divider, ListItemText, Tooltip } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Typography, Link, List, ListItem, Modal, Divider, ListItemText, Tooltip } from '@mui/material';
 import prideBooksIMG from '../assets/artworks/pride_books.png';
+import ImageViewer from './ImageViewer';
 
 function Resources() {
+    const [showImage, setShowImage] = useState(false);
+
     const linksData = [
         {
             label: 'Point of Pride',
@@ -76,6 +79,7 @@ function Resources() {
                 component="img"
                 src={prideBooksIMG}
                 alt="Pride Books Artwork"
+                onClick={() => setShowImage(true)}
                 sx={{
                     maxWidth: '70%',
                     maxHeight: '70%',
@@ -135,6 +139,20 @@ function Resources() {
                     </React.Fragment>
                 ))}
             </List>
+            <Modal
+                open={showImage}
+                onClose={() => setShowImage(false)}
+            >
+                <ImageViewer
+                    images={[
+                        {
+                            image: prideBooksIMG,
+                            title: 'Pride Books Artwork',
+                        },
+                    ]}
+                    onClose={() => setShowImage(false)}
+                />
+            </Modal>
         </Box>
     );
 }
