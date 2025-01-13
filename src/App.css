@@ -9,9 +9,8 @@ body {
     touch-action: manipulation;
     
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text */
+    background-color: #121212;
+    color: #ffffff;
 }
 
 /* img {

@@ -1,6 +1,6 @@
+from datetime import datetime
 import csv
 import json
-from datetime import datetime
 
 
 def petition_to_json():
@@ -27,7 +27,12 @@ def petition_to_json():
             except ValueError:
                 formatted_date = "N/A"
 
-            data_list.append({"name": name.title().strip(), "date": formatted_date})
+            data_list.append(
+                {
+                    "name": " ".join([word[0].upper() + word[1:] for word in name.strip().split()]),
+                    "date": formatted_date,
+                }
+            )
 
     with open("src/assets/petition.json", mode="w", encoding="utf-8") as json_file:
         json.dump(data_list, json_file, indent=4)
