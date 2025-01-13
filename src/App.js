@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Title from './components/Title';
 import Information from './components/Information';
 import Petition from './components/Petition';
-import Links from './components/Links';
+import Resources from './components/Resources';
 import Artworks from './components/Artworks';
 import Contact from './components/Contact';
 import BackToTop from './components/BackToTop';
@@ -14,11 +14,23 @@ function App() {
     return (
         <>
             <Navbar />
-            <Box sx={{ display: 'flex', flexDirection: 'column', mx: { xs: 5, sm: 8, md: 14, lg: 28, xl: 35 } }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    mx: {
+                        xs: 5,
+                        sm: 8,
+                        md: 14,
+                        lg: 28,
+                        xl: 35,
+                    },
+                }}
+            >
                 <Title />
                 <Information />
-                <Petition updated="Jan 10" />
-                <Links />
+                <Petition updated="Jan 13" />
+                <Resources />
                 <Artworks />
                 <Contact />
             </Box>

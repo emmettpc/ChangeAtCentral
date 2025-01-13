@@ -2,12 +2,9 @@
 
 ## High Priority
 
--   Fix error when scaling site on PCs
--   Make the signatures list into a JSON file rather than storing it as a CSV then processing it
+-   Add List of Resources
 
 ## Medium Priority
-
--   Make images pop-up when clicked/pressed
 
 ## Low Priority
 

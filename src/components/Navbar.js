@@ -13,7 +13,6 @@ import {
     Divider,
 } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
-import SettingsIcon from '@mui/icons-material/Settings';
 import MenuIcon from '@mui/icons-material/Menu';
 
 function Navbar() {
@@ -28,8 +27,6 @@ function Navbar() {
             behavior: 'smooth',
         });
     };
-
-    const handleSettings = () => {};
 
     const handleShare = async () => {
         const url = window.location.href;
@@ -62,11 +59,26 @@ function Navbar() {
     };
 
     const navItems = [
-        { label: 'Information', sectionId: 'information' },
-        { label: 'Petition', sectionId: 'petition' },
-        { label: 'Links', sectionId: 'links' },
-        { label: 'Artworks', sectionId: 'artworks' },
-        { label: 'Contact', sectionId: 'contact' },
+        {
+            label: 'Information',
+            sectionId: 'information',
+        },
+        {
+            label: 'Petition',
+            sectionId: 'petition',
+        },
+        {
+            label: 'Resources',
+            sectionId: 'resources',
+        },
+        {
+            label: 'Artworks',
+            sectionId: 'artworks',
+        },
+        {
+            label: 'Contact',
+            sectionId: 'contact',
+        },
     ];
 
     const [visibleButtons, setVisibleButtons] = useState(navItems.length);
@@ -102,10 +114,12 @@ function Navbar() {
                     >
                         IDK
                     </Typography>
-
                     <Box
                         sx={{
-                            display: { xs: 'none', sm: 'flex' },
+                            display: {
+                                xs: 'none',
+                                sm: 'flex',
+                            },
                             flexDirection: 'row',
                         }}
                     >
@@ -122,7 +136,6 @@ function Navbar() {
                                 {item.label}
                             </Button>
                         ))}
-
                         {visibleButtons < navItems.length && (
                             <IconButton
                                 color="inherit"
@@ -131,14 +144,6 @@ function Navbar() {
                                 <MenuIcon />
                             </IconButton>
                         )}
-
-                        <IconButton
-                            color="inherit"
-                            onClick={handleSettings}
-                        >
-                            <SettingsIcon />
-                        </IconButton>
-
                         <IconButton
                             color="inherit"
                             onClick={handleShare}
@@ -146,10 +151,12 @@ function Navbar() {
                             <ShareIcon />
                         </IconButton>
                     </Box>
-
                     <Box
                         sx={{
-                            display: { xs: 'flex', sm: 'none' },
+                            display: {
+                                xs: 'flex',
+                                sm: 'none',
+                            },
                         }}
                     >
                         <IconButton
@@ -161,7 +168,6 @@ function Navbar() {
                     </Box>
                 </Toolbar>
             </AppBar>
-
             <Drawer
                 anchor="right"
                 open={drawerOpen}
@@ -186,12 +192,6 @@ function Navbar() {
                             </ListItem>
                         ))}
                         <Divider />
-                        <ListItem
-                            button
-                            onClick={handleSettings}
-                        >
-                            <ListItemText primary="Settings" />
-                        </ListItem>
                         <ListItem
                             button
                             onClick={handleShare}

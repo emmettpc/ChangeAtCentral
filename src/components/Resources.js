@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Link, List, ListItem, Divider, ListItemText, Tooltip } from '@mui/material';
 
-function Links() {
+function Resources() {
     const linksData = [
         {
             label: 'Placeholder Website 1',
@@ -56,10 +56,8 @@ function Links() {
                 marginTop: '1rem',
                 marginBottom: '-3rem',
             }}
-            id="links"
+            id="resources"
         >
-            {/* Yes this is terrible ik already, but it's 2am and I just don't care anymore (btw this is refering to the -3rem) */}
-
             <Typography
                 variant="h4"
                 sx={{
@@ -67,7 +65,7 @@ function Links() {
                     color: '#ffffff',
                 }}
             >
-                Useful Links
+                Helpful Resources
             </Typography>
             <List>
                 {linksData.map((link, index) => (
@@ -125,4 +123,4 @@ function Links() {
     );
 }
 
-export default Links;
+export default Resources;

@@ -5,7 +5,12 @@ function Contact() {
     return (
         <Box
             sx={{
-                paddingTop: { sm: '1rem', md: '2rem', lg: '3rem' },
+                paddingTop: {
+                    sm: '1rem',
+                    md: '2rem',
+                    lg: '3rem',
+                },
+                marginBottom: '2rem',
                 backgroundColor: '#121212',
             }}
             id="contact"
@@ -14,7 +19,6 @@ function Contact() {
                 <Typography
                     variant="h4"
                     gutterBottom
-                    // marginLeft="-2.5rem" /* Nasty -2.5rem but it's almost 2:30am so I don't care */
                     sx={{
                         fontWeight: 'bold',
                         color: '#ffffff',

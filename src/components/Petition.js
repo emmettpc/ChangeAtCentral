@@ -1,33 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Card, CardContent, CardMedia, List, ListItem, Divider } from '@mui/material';
-import StuckAtTheDoorIMG from '../assets/artworks/stuck_at_the_door.png';
-import Papa from 'papaparse';
+import { Box, Typography, Button, Card, CardContent, CardMedia, List, ListItem, Modal, Divider } from '@mui/material';
+import stuckAtTheDoorIMG from '../assets/artworks/stuck_at_the_door.png';
+import petition from '../assets/petition.json';
+import ImageViewer from './ImageViewer';
 
 function Petition({ updated = 'N/A' }) {
     const [signaturesList, setSignaturesList] = useState([]);
+    const [showImage, setShowImage] = useState(false);
 
     useEffect(() => {
-        const fetchSignatures = async () => {
-            try {
-                const response = await fetch('/signatures.csv');
-                const csvText = await response.text();
-                const cleanedText = csvText
-                    .replace('/\u0000/g', '')
-                    .replace('/��/g', ''); /* This is a terrible solution that'll be fixed eventually */
-                Papa.parse(cleanedText, {
-                    delimiter: '\t',
-                    header: true,
-                    skipEmptyLines: true,
-                    complete: (r) => {
-                        setSignaturesList(r.data);
-                    },
-                });
-            } catch (error) {
-                console.error('Error loading CSV:', error);
-            }
-        };
-
-        fetchSignatures();
+        setSignaturesList(petition);
     }, []);
 
     return (
@@ -37,7 +19,10 @@ function Petition({ updated = 'N/A' }) {
                 margin: 'auto',
                 boxShadow: 3,
                 borderRadius: 2,
-                marginTop: { xs: '1rem', md: '2rem' },
+                marginTop: {
+                    xs: '1rem',
+                    md: '2rem',
+                },
                 textAlign: 'center',
                 padding: 2,
             }}
@@ -45,11 +30,13 @@ function Petition({ updated = 'N/A' }) {
         >
             <CardMedia
                 component="img"
-                image={StuckAtTheDoorIMG}
+                image={stuckAtTheDoorIMG}
                 alt="Stuck At The Door Artwork"
+                onClick={() => setShowImage(true)}
                 sx={{
                     objectFit: 'cover',
                     borderRadius: 2,
+                    cursor: 'pointer',
                 }}
             />
             <CardContent>
@@ -126,7 +113,7 @@ function Petition({ updated = 'N/A' }) {
                                                 flexGrow: 1,
                                             }}
                                         >
-                                            {e.Name || 'Anonymous'}
+                                            {e.name || 'Anonymous'}
                                         </Typography>
                                         <Typography
                                             variant="body2"
@@ -135,13 +122,27 @@ function Petition({ updated = 'N/A' }) {
                                                 whiteSpace: 'nowrap',
                                             }}
                                         >
-                                            {e.Date || 'Unknown'}
+                                            {e.date || 'Unknown'}
                                         </Typography>
                                     </ListItem>
                                     {i < signaturesList.length - 1 && <Divider />}
                                 </React.Fragment>
                             ))}
                     </List>
+                    <Modal
+                        open={showImage}
+                        onClose={() => setShowImage(false)}
+                    >
+                        <ImageViewer
+                            images={[
+                                {
+                                    image: stuckAtTheDoorIMG,
+                                    title: 'Stuck At The Door',
+                                },
+                            ]}
+                            onClose={() => setShowImage(false)}
+                        />
+                    </Modal>
                 </Box>
             </CardContent>
         </Card>

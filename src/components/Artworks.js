@@ -7,14 +7,23 @@ import prideBooksIMG from '../assets/artworks/pride_books.png';
 import stuckAtTheDoorIMG from '../assets/artworks/stuck_at_the_door.png';
 
 const artworks = [
-    { title: 'Chained To Labels Artwork', image: chainedToLabelsIMG },
-    { title: 'Stuck At The Door Artwork', image: stuckAtTheDoorIMG },
-    { title: 'Pride Books Artwork', image: prideBooksIMG },
+    {
+        title: 'Chained To Labels Artwork',
+        image: chainedToLabelsIMG,
+    },
+    {
+        title: 'Stuck At The Door Artwork',
+        image: stuckAtTheDoorIMG,
+    },
+    {
+        title: 'Pride Books Artwork',
+        image: prideBooksIMG,
+    },
 ];
 
 function Artworks() {
     const [openViewer, setOpenViewer] = useState(false);
-    const [selectedImage, setSelectedImage] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const handleOpenViewer = (image) => {
         setSelectedImage(image);
@@ -23,7 +32,7 @@ function Artworks() {
 
     const handleCloseViewer = () => {
         setOpenViewer(false);
-        setSelectedImage('');
+        setSelectedImage(null);
     };
 
     return (
@@ -45,7 +54,7 @@ function Artworks() {
             </Typography>
             <Grid2
                 container
-                spacing={3}
+                spacing={1}
                 sx={{
                     justifyContent: 'center',
                 }}
@@ -68,7 +77,11 @@ function Artworks() {
                                 alignItems: 'center',
                                 '& img': {
                                     width: '100%',
-                                    maxWidth: { xs: '150px', sm: '200px', md: '300px' },
+                                    maxWidth: {
+                                        xs: '150px',
+                                        sm: '200px',
+                                        md: '300px',
+                                    },
                                     height: 'auto',
                                     borderRadius: '8px',
                                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
@@ -79,7 +92,7 @@ function Artworks() {
                                     boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3)',
                                 },
                             }}
-                            onClick={() => handleOpenViewer(a.image)}
+                            onClick={() => handleOpenViewer(a)}
                         >
                             <img
                                 src={a.image}
@@ -94,7 +107,8 @@ function Artworks() {
                 onClose={handleCloseViewer}
             >
                 <ImageViewer
-                    imageUrl={selectedImage}
+                    images={artworks}
+                    currentIndex={artworks.indexOf(selectedImage)}
                     onClose={handleCloseViewer}
                 />
             </Modal>
