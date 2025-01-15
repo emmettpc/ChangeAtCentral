@@ -5,8 +5,8 @@ import Title from './components/Title';
 import Information from './components/Information';
 import Petition from './components/Petition';
 import Resources from './components/Resources';
-import Artworks from './components/Artworks';
 import Contact from './components/Contact';
+import Artworks from './components/Artworks';
 import BackToTop from './components/BackToTop';
 import './App.css';
 
@@ -29,7 +29,7 @@ function App() {
             >
                 <Title />
                 <Information />
-                <Petition updated="Jan 13" />
+                <Petition updated="Jan 14" />
                 <Resources />
                 <Artworks />
                 <Contact />

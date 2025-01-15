@@ -5,6 +5,9 @@ import ImageViewer from './ImageViewer';
 import chainedToLabelsIMG from '../assets/artworks/chained_to_labels.png';
 import prideBooksIMG from '../assets/artworks/pride_books.png';
 import stuckAtTheDoorIMG from '../assets/artworks/stuck_at_the_door.png';
+import standingTogetherIMG from '../assets/artworks/standing_together.png';
+import pridePlanetsIMG from '../assets/artworks/pride_planets.png';
+import flowerIMG from '../assets/artworks/flower_image.png';
 
 const artworks = [
     {
@@ -16,8 +19,20 @@ const artworks = [
         image: stuckAtTheDoorIMG,
     },
     {
+        title: 'Standing Together Artwork',
+        image: standingTogetherIMG,
+    },
+    {
+        title: 'Pride Planets Artwork',
+        image: pridePlanetsIMG,
+    },
+    {
         title: 'Pride Books Artwork',
         image: prideBooksIMG,
+    },
+    {
+        title: '',
+        image: flowerIMG,
     },
 ];
 

@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
 import MenuIcon from '@mui/icons-material/Menu';
-import genderqueerFlag from '../assets/images/genderqueer_flag.webp';
+import flowerIMG from '../assets/artworks/flower_transparent.png';
 
 function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -108,11 +108,13 @@ function Navbar() {
                 <Toolbar>
                     <Box
                         component="img"
-                        src={genderqueerFlag}
-                        alt="Genderqueer Flag"
+                        src={flowerIMG}
+                        alt="Flower Artwork"
                         sx={{
                             flexGrow: 1,
                             maxWidth: '5%',
+                            background: 'rgb(106, 133, 240)',
+                            borderRadius: '10px',
                         }}
                     />
                     <Typography

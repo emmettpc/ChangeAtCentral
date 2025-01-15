@@ -10,7 +10,7 @@ function Contact() {
                     md: '2rem',
                     lg: '3rem',
                 },
-                marginBottom: '2rem',
+                marginBottom: '3rem',
                 backgroundColor: '#121212',
             }}
             id="contact"

@@ -2,7 +2,7 @@
 
 ## High Priority
 
--   Add List of Resources
+-   Finish images in information component
 
 ## Medium Priority
 

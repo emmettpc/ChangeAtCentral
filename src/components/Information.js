@@ -3,6 +3,7 @@ import { Box, Typography, Modal } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import chainedToLabelsIMG from '../assets/artworks/chained_to_labels.png';
 import johnsonHighBathroomsIMG from '../assets/images/johnson_high_bathrooms.jpg';
+import standingTogetherIMG from '../assets/artworks/standing_together.png';
 import ImageViewer from './ImageViewer';
 
 function Information() {
@@ -20,16 +21,28 @@ function Information() {
     });
 
     const [openViewer, setOpenViewer] = useState(false);
-    const [selectedImage, setSelectedImage] = useState({ title: 'N/A', image: null });
+    const [imageId, setImageId] = useState(0);
+    const [selectedImage, setSelectedImage] = useState({
+        id: 0,
+        title: 'N/A',
+        image: null,
+    });
 
-    const handleOpenViewer = (image, title) => {
-        setSelectedImage({ title, image });
+    const handleOpenViewer = (id, image, title) => {
+        setSelectedImage({
+            id,
+            title,
+            image,
+        });
         setOpenViewer(true);
     };
 
     const handleCloseViewer = () => {
         setOpenViewer(false);
-        setSelectedImage({ title: 'N/A', image: null });
+        setSelectedImage({
+            title: 'N/A',
+            image: null,
+        });
     };
 
     return (
@@ -110,6 +123,7 @@ function Information() {
                         }}
                         onClick={() =>
                             handleOpenViewer(
+                                0,
                                 johnsonHighBathroomsIMG,
                                 'Johnson Highschool Gender-Neutral Bathrooms Image',
                             )
@@ -146,7 +160,7 @@ function Information() {
                             marginTop: '8px',
                             cursor: 'pointer',
                         }}
-                        onClick={() => handleOpenViewer(chainedToLabelsIMG, 'Chained to Labels Artwork')}
+                        onClick={() => handleOpenViewer(1, chainedToLabelsIMG, 'Chained to Labels Artwork')}
                     />
                     Intersectionality highlights how BIPOC students, already dealing with systemic racial barriers,
                     experience heightened difficulties when their gender identity is further marginalized. On top of
@@ -162,15 +176,33 @@ function Information() {
                 open={openViewer}
                 onClose={handleCloseViewer}
             >
-                <ImageViewer
-                    images={[
-                        {
-                            title: selectedImage.title,
-                            image: selectedImage.image,
-                        },
-                    ]}
-                    onClose={handleCloseViewer}
-                />
+                {
+                    (selectedImage.id = 1 ? (
+                        <ImageViewer
+                            images={[
+                                {
+                                    title: selectedImage.title,
+                                    image: selectedImage.image,
+                                },
+                                {
+                                    title: 'Standing Together Artwork',
+                                    image: standingTogetherIMG,
+                                },
+                            ]}
+                            onClose={handleCloseViewer}
+                        />
+                    ) : (
+                        <ImageViewer
+                            images={[
+                                {
+                                    title: selectedImage.title,
+                                    image: selectedImage.image,
+                                },
+                            ]}
+                            onClose={handleCloseViewer}
+                        />
+                    ))
+                }
             </Modal>
         </Box>
     );
