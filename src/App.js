@@ -19,10 +19,10 @@ function App() {
                     display: 'flex',
                     flexDirection: 'column',
                     mx: {
-                        xs: 5,
-                        sm: 8,
-                        md: 14,
-                        lg: 28,
+                        xs: 2.5,
+                        sm: 5,
+                        md: 12,
+                        lg: 25,
                         xl: 35,
                     },
                 }}

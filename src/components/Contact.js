@@ -74,7 +74,7 @@ function Contact() {
                     >
                         cschayes001@stpaul.k12.mn.us
                     </Link>{' '}
-                    (Casper Shayes).
+                    (Casper Schayes).
                 </Typography>
                 <Typography
                     variant="body1"
