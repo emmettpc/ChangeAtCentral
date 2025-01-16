@@ -6,6 +6,17 @@ import johnsonHighBathroomsIMG from '../assets/images/johnson_high_bathrooms.jpg
 import standingTogetherIMG from '../assets/artworks/standing_together.png';
 import ImageViewer from './ImageViewer';
 
+const artworks = [
+    {
+        title: 'Chained to Labels Artwork',
+        image: chainedToLabelsIMG,
+    },
+    {
+        title: 'Standing Together Artwork',
+        image: standingTogetherIMG,
+    },
+];
+
 function Information() {
     const theme = createTheme({
         breakpoints: {
@@ -21,28 +32,19 @@ function Information() {
     });
 
     const [openViewer, setOpenViewer] = useState(false);
-    const [imageId, setImageId] = useState(0);
-    const [selectedImage, setSelectedImage] = useState({
-        id: 0,
-        title: 'N/A',
-        image: null,
-    });
+    const [selectedId, setSelectedId] = useState(0);
 
-    const handleOpenViewer = (id, image, title) => {
-        setSelectedImage({
-            id,
-            title,
-            image,
-        });
+    const handleOpenViewer = (id) => {
+        setSelectedId(id);
         setOpenViewer(true);
     };
 
     const handleCloseViewer = () => {
         setOpenViewer(false);
-        setSelectedImage({
-            title: 'N/A',
-            image: null,
-        });
+    };
+
+    const handleNextImage = () => {
+        setSelectedId((selectedId % 2) + 1);
     };
 
     return (
@@ -121,13 +123,7 @@ function Information() {
                             float: 'right',
                             cursor: 'pointer',
                         }}
-                        onClick={() =>
-                            handleOpenViewer(
-                                0,
-                                johnsonHighBathroomsIMG,
-                                'Johnson Highschool Gender-Neutral Bathrooms Image',
-                            )
-                        }
+                        onClick={() => handleOpenViewer(0)}
                     />
                 </Box>
             </ThemeProvider>
@@ -147,8 +143,8 @@ function Information() {
                     lower academic performance.{' '}
                     <Box
                         component="img"
-                        src={chainedToLabelsIMG}
-                        alt="Chained to Labels Artwork"
+                        src={selectedId === 0 ? chainedToLabelsIMG : standingTogetherIMG}
+                        alt={selectedId === 0 ? 'Chained to Labels Artwork' : 'Standing Together Artwork'}
                         sx={{
                             width: '40%',
                             maxWidth: '600px',
@@ -160,7 +156,9 @@ function Information() {
                             marginTop: '8px',
                             cursor: 'pointer',
                         }}
-                        onClick={() => handleOpenViewer(1, chainedToLabelsIMG, 'Chained to Labels Artwork')}
+                        onClick={() => {
+                            handleOpenViewer(1);
+                        }}
                     />
                     Intersectionality highlights how BIPOC students, already dealing with systemic racial barriers,
                     experience heightened difficulties when their gender identity is further marginalized. On top of
@@ -176,33 +174,25 @@ function Information() {
                 open={openViewer}
                 onClose={handleCloseViewer}
             >
-                {
-                    (selectedImage.id = 1 ? (
-                        <ImageViewer
-                            images={[
-                                {
-                                    title: selectedImage.title,
-                                    image: selectedImage.image,
-                                },
-                                {
-                                    title: 'Standing Together Artwork',
-                                    image: standingTogetherIMG,
-                                },
-                            ]}
-                            onClose={handleCloseViewer}
-                        />
-                    ) : (
-                        <ImageViewer
-                            images={[
-                                {
-                                    title: selectedImage.title,
-                                    image: selectedImage.image,
-                                },
-                            ]}
-                            onClose={handleCloseViewer}
-                        />
-                    ))
-                }
+                {selectedId !== 0 ? (
+                    <ImageViewer
+                        images={artworks}
+                        currentIndex={selectedId - 1}
+                        onClose={handleCloseViewer}
+                        nextImage={handleNextImage}
+                    />
+                ) : (
+                    <ImageViewer
+                        images={[
+                            {
+                                title: 'Johnson Highschool Gender-Neutral Bathrooms Image',
+                                image: johnsonHighBathroomsIMG,
+                            },
+                        ]}
+                        currentIndex={0}
+                        onClose={handleCloseViewer}
+                    />
+                )}
             </Modal>
         </Box>
     );

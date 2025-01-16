@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import { Close as CloseIcon, ArrowForward as ArrowForwardIcon, ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 
-const ImageViewer = ({ images, currentIndex = 0, onClose }) => {
+const ImageViewer = ({ images, currentIndex = 0, onClose, nextImage = () => {} }) => {
     const [index, setIndex] = useState(currentIndex);
 
     const handlePrev = () => {
@@ -62,7 +62,10 @@ const ImageViewer = ({ images, currentIndex = 0, onClose }) => {
                                 transform: 'translateY(-50%)',
                                 zIndex: 100,
                             }}
-                            onClick={handlePrev}
+                            onClick={() => {
+                                handlePrev();
+                                nextImage();
+                            }}
                         >
                             <ArrowBackIcon
                                 sx={{
@@ -79,7 +82,10 @@ const ImageViewer = ({ images, currentIndex = 0, onClose }) => {
                                 transform: 'translateY(-50%)',
                                 zIndex: 100,
                             }}
-                            onClick={handleNext}
+                            onClick={() => {
+                                handleNext();
+                                nextImage();
+                            }}
                         >
                             <ArrowForwardIcon
                                 sx={{
