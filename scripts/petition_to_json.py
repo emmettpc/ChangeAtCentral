@@ -10,7 +10,9 @@ def petition_to_json():
         "’": "'",
         "“": '"',
         "”": '"',
+        "Bidi": "",
         "ë": "e",
+        "Ski": "",
     }
 
     with open("scripts/petition.tsv", mode="r", encoding="utf-16") as csv_file:
