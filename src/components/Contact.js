@@ -72,7 +72,7 @@ function Contact() {
                             textDecoration: 'none',
                         }}
                     >
-                        cshayes001@stpaul.k12.mn.us
+                        cschayes001@stpaul.k12.mn.us
                     </Link>{' '}
                     (Casper Shayes).
                 </Typography>
@@ -87,7 +87,7 @@ function Contact() {
                     You can also leave a comment on the petition page if you'd like. We would love to hear your thoughts
                     and feedback! Here's the link to the petition:{' '}
                     <Link
-                        href="https://example.com/petition"
+                        href="https://www.change.org/Gender-Neutral-Bathrooms"
                         sx={{
                             color: '#bb86fc',
                             textDecoration: 'none',
