@@ -32,10 +32,11 @@ function Information() {
     });
 
     const [openViewer, setOpenViewer] = useState(false);
-    const [selectedId, setSelectedId] = useState(0);
+    const [selectedId2, setSelectedId2] = useState(0);
+    const [selectedId1, setSelectedId1] = useState(0);
 
     const handleOpenViewer = (id) => {
-        setSelectedId(id);
+        setSelectedId1(id);
         setOpenViewer(true);
     };
 
@@ -44,7 +45,7 @@ function Information() {
     };
 
     const handleNextImage = () => {
-        setSelectedId((selectedId % 2) + 1);
+        setSelectedId2((selectedId2 + 1) % 2);
     };
 
     return (
@@ -143,8 +144,8 @@ function Information() {
                     lower academic performance.{' '}
                     <Box
                         component="img"
-                        src={selectedId === 0 ? chainedToLabelsIMG : standingTogetherIMG}
-                        alt={selectedId === 0 ? 'Chained to Labels Artwork' : 'Standing Together Artwork'}
+                        src={selectedId2 === 0 ? chainedToLabelsIMG : standingTogetherIMG}
+                        alt={selectedId2 === 0 ? 'Chained to Labels Artwork' : 'Standing Together Artwork'}
                         sx={{
                             width: '40%',
                             maxWidth: '600px',
@@ -174,10 +175,10 @@ function Information() {
                 open={openViewer}
                 onClose={handleCloseViewer}
             >
-                {selectedId !== 0 ? (
+                {selectedId1 !== 0 ? (
                     <ImageViewer
                         images={artworks}
-                        currentIndex={selectedId - 1}
+                        currentIndex={selectedId2}
                         onClose={handleCloseViewer}
                         nextImage={handleNextImage}
                     />
