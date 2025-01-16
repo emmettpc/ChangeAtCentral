@@ -115,6 +115,7 @@ function Navbar() {
                             maxWidth: '5%',
                             background: 'rgb(106, 133, 240)',
                             borderRadius: '10px',
+                            marginLeft: '-5px',
                         }}
                     />
                     <Typography
