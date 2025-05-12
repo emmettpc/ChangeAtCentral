@@ -29,7 +29,7 @@ function App() {
             >
                 <Title />
                 <Information />
-                <Petition updated="Jan 16" />
+                <Petition updated="May 12" />
                 <Resources />
                 <Artworks />
                 <Contact />

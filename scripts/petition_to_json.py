@@ -15,7 +15,7 @@ def petition_to_json():
         "Ski": "",
     }
 
-    with open("scripts/petition.tsv", mode="r", encoding="utf-16") as csv_file:
+    with open("scripts/petition.csv", mode="r", encoding="utf-16") as csv_file:
         reader = csv.DictReader(csv_file, delimiter="\t")
         for row in reader:
             name = row.get("Name", "Anonymous")
@@ -31,7 +31,9 @@ def petition_to_json():
 
             data_list.append(
                 {
-                    "name": " ".join([word[0].upper() + word[1:] for word in name.strip().split()]),
+                    "name": " ".join(
+                        [word[0].upper() + word[1:] for word in name.lower().strip().split()]
+                    ),
                     "date": formatted_date,
                 }
             )
