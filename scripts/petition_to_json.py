@@ -7,6 +7,7 @@ def petition_to_json():
     data_list = []
     replacements = {
         "- ": "-",
+        ".": "",
         "’": "'",
         "“": '"',
         "”": '"',
