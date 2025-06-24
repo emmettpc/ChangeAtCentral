@@ -68,53 +68,49 @@ function Artworks() {
                 Artworks
             </Typography>
             <Grid2
-                container
                 spacing={1}
                 sx={{
+                    display: 'grid',
                     justifyContent: 'center',
+                    gridTemplateColumns: {
+                        xs: 'repeat(1, 1fr)',
+                        sm: 'repeat(2, 1fr)',
+                        md: 'repeat(3, 1fr)',
+                        lg: 'repeat(4, 1fr)',
+                    },
+                    gap: 4,
                 }}
             >
                 {artworks.map((a, i) => (
-                    <Grid2
-                        item
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        lg={3}
+                    <Box
                         key={i}
+                        sx={{
+                            position: 'relative',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            '& img': {
+                                width: '100%',
+                                maxWidth: {
+                                    xs: '150px',
+                                    sm: '200px',
+                                    md: '300px',
+                                },
+                                height: 'auto',
+                                borderRadius: '8px',
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            },
+                            '&:hover img': {
+                                transform: 'scale(1.05)',
+                                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3)',
+                            },
+                        }}
+                        onClick={() => handleOpenViewer(a)}
                     >
-                        <Box
-                            sx={{
-                                position: 'relative',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                '& img': {
-                                    width: '100%',
-                                    maxWidth: {
-                                        xs: '150px',
-                                        sm: '200px',
-                                        md: '300px',
-                                    },
-                                    height: 'auto',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                                },
-                                '&:hover img': {
-                                    transform: 'scale(1.05)',
-                                    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3)',
-                                },
-                            }}
-                            onClick={() => handleOpenViewer(a)}
-                        >
-                            <img
-                                src={a.image}
-                                alt={a.title}
-                            />
-                        </Box>
-                    </Grid2>
+                        <img src={a.image} alt={a.title} />
+                    </Box>
                 ))}
             </Grid2>
             <Modal
