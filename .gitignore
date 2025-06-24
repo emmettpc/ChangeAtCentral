@@ -1,8 +1,7 @@
-# dependencies
 node_modules
 
-# vscode
 vendordeps
 
-# mac
 .DS_Store
+
+dist
